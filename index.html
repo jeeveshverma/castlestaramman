@@ -7,13 +7,22 @@
 <meta name="description" content="Family-run hostel in Downtown Amman, steps from the Citadel and Roman Theatre. Private rooms and dorms, rooftop sunset views, shared kitchen. Book direct on WhatsApp.">
 <meta property="og:title" content="The Castle Star — Downtown Amman">
 <meta property="og:description" content="Private rooms and dorms at the foot of the Citadel. Rooftop views over the Roman Theatre. Book direct on WhatsApp.">
-<meta property="og:image" content="assets/img/hero-dusk.jpg">
+<meta property="og:image" content="https://jeeveshverma.github.io/castlestaramman/assets/img/hero-dusk.jpg">
+<meta property="og:url" content="https://jeeveshverma.github.io/castlestaramman/">
+<meta property="og:site_name" content="The Castle Star">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jeeveshverma.github.io/castlestaramman/">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#15162e">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="alternate" hreflang="en" href="https://jeeveshverma.github.io/castlestaramman/">
+<link rel="alternate" hreflang="ar" href="https://jeeveshverma.github.io/castlestaramman/ar/">
+<link rel="alternate" hreflang="x-default" href="https://jeeveshverma.github.io/castlestaramman/">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="alternate" hreflang="ar" href="ar/">
-<link rel="alternate" hreflang="en" href="./">
+
+
+<link rel="preload" as="image" href="assets/img/hero-dusk-800.jpg" imagesrcset="assets/img/hero-dusk-800.jpg 800w, assets/img/hero-dusk.jpg 1280w" imagesizes="100vw">
 <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/style.css">
@@ -22,11 +31,17 @@
   "@context": "https://schema.org",
   "@type": "Hostel",
   "name": "The Castle Star",
-  "image": "assets/img/hero-dusk.jpg",
+  "url": "https://jeeveshverma.github.io/castlestaramman/",
+  "image": "https://jeeveshverma.github.io/castlestaramman/assets/img/hero-dusk.jpg",
+  "logo": "https://jeeveshverma.github.io/castlestaramman/assets/img/logo-dark.png",
   "telephone": "+962 78 066 6888",
   "address": {"@type": "PostalAddress", "streetAddress": "Building 1, Hashem Al-Kheir St.", "addressLocality": "Amman", "postalCode": "11110", "addressCountry": "JO"},
   "checkinTime": "12:00", "checkoutTime": "10:00",
   "priceRange": "US$16–49",
+  "currenciesAccepted": "JOD, USD",
+  "paymentAccepted": "Cash",
+  "availableLanguage": ["Arabic", "English", "Turkish"],
+  "petsAllowed": false,
   "aggregateRating": {"@type": "AggregateRating", "ratingValue": "8.9", "bestRating": "10", "reviewCount": "806"},
   "amenityFeature": [
     {"@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true},
@@ -38,6 +53,7 @@
 </script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1l2.6 5.2 5.2-2.2-2.2 5.2L23 12l-5.4 2.6 2.2 5.2-5.2-2.2L12 23l-2.6-5.4-5.2 2.2 2.2-5.2L1 12l5.4-2.8-2.2-5.2 5.2 2.2z"/></symbol>
@@ -71,7 +87,8 @@
     </a>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#rooms">Rooms</a>
-      <a href="#rooftop">Rooftop</a>
+      <a href="#rooftop">Terrace</a>
+      <a href="#trips">Trips</a>
       <a href="#reviews">Reviews</a>
       <a href="#location">Location</a>
       <a href="#faq">FAQ</a>
@@ -82,10 +99,10 @@
   </div>
 </header>
 
-<main>
+<main id="main">
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-media"><img src="assets/img/hero-dusk.jpg" alt="Amman at dusk from The Castle Star, with the Roman Theatre lit up below" fetchpriority="high"></div>
+  <div class="hero-media"><img src="assets/img/hero-dusk.jpg" alt="Amman at dusk from The Castle Star, with the Roman Theatre lit up below" fetchpriority="high" width="1280" height="852" srcset="assets/img/hero-dusk-800.jpg 800w, assets/img/hero-dusk.jpg 1280w" sizes="100vw"></div>
   <div class="wrap hero-inner">
     <div>
       <span class="eyebrow"><svg><use href="#i-star"/></svg>Downtown Amman · at the foot of the Citadel</span>
@@ -106,6 +123,7 @@
       </ul>
     </aside>
   </div>
+  <a class="hero-cue" href="#rooms" aria-label="Scroll down"></a>
 </section>
 
 <!-- ============ DISTANCE RIBBON ============ -->
@@ -125,8 +143,8 @@
 <section class="section">
   <div class="wrap story">
     <div class="story-photos reveal">
-      <figure class="p1"><img src="assets/img/dorm-window.jpg" alt="Dorm with a big window looking over Amman" loading="lazy"></figure>
-      <figure class="p2"><img src="assets/img/blue-door.jpg" alt="Hand-painted blue door inside The Castle Star" loading="lazy"></figure>
+      <figure class="p1"><img src="assets/img/dorm-window.jpg" alt="Dorm with a big window looking over Amman" loading="lazy" width="1280" height="852" srcset="assets/img/dorm-window-800.jpg 800w, assets/img/dorm-window.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw"></figure>
+      <figure class="p2"><img src="assets/img/blue-door.jpg" alt="Hand-painted blue door inside The Castle Star" loading="lazy" width="1173" height="900" srcset="assets/img/blue-door-800.jpg 800w, assets/img/blue-door.jpg 1173w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw"></figure>
       <div class="stamp"><span><b>9.5</b>staff score</span></div>
     </div>
     <div class="story-text reveal">
@@ -162,9 +180,9 @@
     <div class="room-grid" id="tab-private" role="tabpanel" aria-labelledby="t-private">
       <article class="room reveal" data-room="Double Room">
         <div class="room-gallery">
-          <img class="on" src="assets/img/double-1.jpg" alt="Double room with large bed and city window" loading="lazy">
-          <img src="assets/img/double-2.jpg" alt="Double room with walk-in shower" loading="lazy">
-          <img src="assets/img/double-3.jpg" alt="Double room and private bathroom" loading="lazy">
+          <img class="on" src="assets/img/double-1.jpg" alt="Double room with large bed and city window" loading="lazy" width="1248" height="832" srcset="assets/img/double-1-800.jpg 800w, assets/img/double-1.jpg 1248w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
+          <img src="assets/img/double-2.jpg" alt="Double room with walk-in shower" loading="lazy" width="1280" height="853" srcset="assets/img/double-2-800.jpg 800w, assets/img/double-2.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
+          <img src="assets/img/double-3.jpg" alt="Double room and private bathroom" loading="lazy" width="1200" height="900" srcset="assets/img/double-3-800.jpg 800w, assets/img/double-3.jpg 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
           <span class="tag">Couples</span>
         </div>
         <div class="room-body">
@@ -172,7 +190,7 @@
           <div class="room-meta"><span>12 m²</span><span>1 extra-large double bed</span><span>Sleeps 2</span></div>
           <ul><li>Private bathroom with shower</li><li>City / landmark view</li><li>Fridge, kettle, tea &amp; coffee</li></ul>
           <div class="room-foot">
-            <div class="price"><small>From</small><b>US$47 <sub>/ night</sub></b></div>
+            <div class="price"><small>From</small><b>US$47 <sub>/ night</sub></b><em class="jd">≈ 33 JD</em></div>
             <a class="btn btn-dark" href="#book" data-pick="Double Room">Book</a>
           </div>
         </div>
@@ -180,9 +198,9 @@
 
       <article class="room reveal" data-room="Twin Room">
         <div class="room-gallery">
-          <img class="on" src="assets/img/twin-1.jpg" alt="Twin room with two single beds" loading="lazy">
-          <img src="assets/img/twin-2.jpg" alt="Twin room interior" loading="lazy">
-          <img src="assets/img/twin-3.jpg" alt="Private bathroom with glass shower" loading="lazy">
+          <img class="on" src="assets/img/twin-1.jpg" alt="Twin room with two single beds" loading="lazy" width="1280" height="853" srcset="assets/img/twin-1-800.jpg 800w, assets/img/twin-1.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
+          <img src="assets/img/twin-2.jpg" alt="Twin room interior" loading="lazy" width="1280" height="853" srcset="assets/img/twin-2-800.jpg 800w, assets/img/twin-2.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
+          <img src="assets/img/twin-3.jpg" alt="Private bathroom with glass shower" loading="lazy" width="1280" height="853" srcset="assets/img/twin-3-800.jpg 800w, assets/img/twin-3.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
           <span class="tag">Friends</span>
         </div>
         <div class="room-body">
@@ -190,7 +208,7 @@
           <div class="room-meta"><span>12 m²</span><span>2 single beds</span><span>Sleeps 2</span></div>
           <ul><li>Private bathroom with shower</li><li>Fridge &amp; microwave</li><li>Kettle, tea &amp; coffee</li></ul>
           <div class="room-foot">
-            <div class="price"><small>From</small><b>US$38 <sub>/ night</sub></b></div>
+            <div class="price"><small>From</small><b>US$38 <sub>/ night</sub></b><em class="jd">≈ 27 JD</em></div>
             <a class="btn btn-dark" href="#book" data-pick="Twin Room">Book</a>
           </div>
         </div>
@@ -198,9 +216,9 @@
 
       <article class="room reveal" data-room="Comfort Triple Room">
         <div class="room-gallery">
-          <img class="on" src="assets/img/triple-1.jpg" alt="Comfort triple room with three single beds" loading="lazy">
-          <img src="assets/img/triple-2.jpg" alt="Triple room with window" loading="lazy">
-          <img src="assets/img/triple-3.jpg" alt="Triple room bathroom" loading="lazy">
+          <img class="on" src="assets/img/triple-1.jpg" alt="Comfort triple room with three single beds" loading="lazy" width="1248" height="832" srcset="assets/img/triple-1-800.jpg 800w, assets/img/triple-1.jpg 1248w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
+          <img src="assets/img/triple-2.jpg" alt="Triple room with window" loading="lazy" width="1280" height="853" srcset="assets/img/triple-2-800.jpg 800w, assets/img/triple-2.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
+          <img src="assets/img/triple-3.jpg" alt="Triple room bathroom" loading="lazy" width="1280" height="853" srcset="assets/img/triple-3-800.jpg 800w, assets/img/triple-3.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
           <span class="tag">Small groups</span>
         </div>
         <div class="room-body">
@@ -208,7 +226,7 @@
           <div class="room-meta"><span>20 m²</span><span>3 single beds</span><span>Sleeps 3</span></div>
           <ul><li>Private bathroom with shower</li><li>Fridge &amp; microwave</li><li>Kettle, tea &amp; coffee</li></ul>
           <div class="room-foot">
-            <div class="price"><small>From</small><b>US$49 <sub>/ night</sub></b></div>
+            <div class="price"><small>From</small><b>US$49 <sub>/ night</sub></b><em class="jd">≈ 35 JD</em></div>
             <a class="btn btn-dark" href="#book" data-pick="Comfort Triple Room">Book</a>
           </div>
         </div>
@@ -218,9 +236,9 @@
     <div class="room-grid two" id="tab-dorms" role="tabpanel" aria-labelledby="t-dorms" hidden>
       <article class="room" data-room="Bed in 6-Bed Female Dorm">
         <div class="room-gallery">
-          <img class="on" src="assets/img/female-1.jpg" alt="Female dorm with wooden bunks and privacy curtains" loading="lazy">
-          <img src="assets/img/female-2.jpg" alt="Female dorm bunks" loading="lazy">
-          <img src="assets/img/female-3.jpg" alt="Dorm window looking towards the Citadel" loading="lazy">
+          <img class="on" src="assets/img/female-1.jpg" alt="Female dorm with wooden bunks and privacy curtains" loading="lazy" width="1280" height="852" srcset="assets/img/female-1-800.jpg 800w, assets/img/female-1.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
+          <img src="assets/img/female-2.jpg" alt="Female dorm bunks" loading="lazy" width="1280" height="852" srcset="assets/img/female-2-800.jpg 800w, assets/img/female-2.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
+          <img src="assets/img/female-3.jpg" alt="Dorm window looking towards the Citadel" loading="lazy" width="1280" height="852" srcset="assets/img/female-3-800.jpg 800w, assets/img/female-3.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
           <span class="tag female">Women only</span>
         </div>
         <div class="room-body">
@@ -228,7 +246,7 @@
           <div class="room-meta"><span>20 m²</span><span>Bunk bed</span><span>Price per bed</span></div>
           <ul><li>Privacy curtain on every bed</li><li>Personal locker &amp; storage</li><li>City and landmark views</li></ul>
           <div class="room-foot">
-            <div class="price"><small>From</small><b>US$16 <sub>/ bed</sub></b></div>
+            <div class="price"><small>From</small><b>US$16 <sub>/ bed</sub></b><em class="jd">≈ 11 JD</em></div>
             <a class="btn btn-dark" href="#book" data-pick="Bed in 6-Bed Female Dorm">Book</a>
           </div>
         </div>
@@ -236,9 +254,9 @@
 
       <article class="room" data-room="Bed in 8-Bed Mixed Dorm">
         <div class="room-gallery">
-          <img class="on" src="assets/img/mixed-1.jpg" alt="Mixed dorm with handmade wooden bunks" loading="lazy">
-          <img src="assets/img/mixed-2.jpg" alt="Mixed dorm bunks and wooden door" loading="lazy">
-          <img src="assets/img/mixed-3.jpg" alt="Mixed dorm" loading="lazy">
+          <img class="on" src="assets/img/mixed-1.jpg" alt="Mixed dorm with handmade wooden bunks" loading="lazy" width="1280" height="852" srcset="assets/img/mixed-1-800.jpg 800w, assets/img/mixed-1.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
+          <img src="assets/img/mixed-2.jpg" alt="Mixed dorm bunks and wooden door" loading="lazy" width="1280" height="852" srcset="assets/img/mixed-2-800.jpg 800w, assets/img/mixed-2.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
+          <img src="assets/img/mixed-3.jpg" alt="Mixed dorm" loading="lazy" width="1024" height="682" srcset="assets/img/mixed-3-800.jpg 800w, assets/img/mixed-3.jpg 1024w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw">
           <span class="tag">Backpackers</span>
         </div>
         <div class="room-body">
@@ -246,7 +264,7 @@
           <div class="room-meta"><span>20 m²</span><span>Bunk bed</span><span>Price per bed</span></div>
           <ul><li>Privacy curtain on every bed</li><li>Personal locker &amp; storage</li><li>City and landmark views</li></ul>
           <div class="room-foot">
-            <div class="price"><small>From</small><b>US$16 <sub>/ bed</sub></b></div>
+            <div class="price"><small>From</small><b>US$16 <sub>/ bed</sub></b><em class="jd">≈ 11 JD</em></div>
             <a class="btn btn-dark" href="#book" data-pick="Bed in 8-Bed Mixed Dorm">Book</a>
           </div>
         </div>
@@ -261,8 +279,8 @@
 <section class="rooftop" id="rooftop">
   <div class="rooftop-grid">
     <div class="rooftop-media" id="viewbox">
-      <img src="assets/img/view-day.jpg" alt="Daytime view over Amman and the Roman Theatre" loading="lazy">
-      <img class="alt" src="assets/img/view-night.jpg" alt="Night view over the lit Roman Theatre" loading="lazy">
+      <img src="assets/img/view-day.jpg" alt="Daytime view over Amman and the Roman Theatre" loading="lazy" width="675" height="900">
+      <img class="alt" src="assets/img/view-night.jpg" alt="Night view over the lit Roman Theatre" loading="lazy" width="506" height="900">
       <div class="toggle" role="group" aria-label="View">
         <button aria-pressed="true" data-view="day">Day</button>
         <button aria-pressed="false" data-view="night">Night</button>
@@ -287,14 +305,14 @@
       <p>It's a hostel that's been put together with care. Tap any photo to see it larger.</p>
     </div>
     <div class="mosaic">
-      <figure class="w2 h2"><img src="assets/img/lounge.jpg" alt="Lounge with sofas and plant-filled shelves" loading="lazy"><figcaption>The lounge</figcaption></figure>
-      <figure><img src="assets/img/kitchen.jpg" alt="Shared kitchen and dining table" loading="lazy"><figcaption>Shared kitchen</figcaption></figure>
-      <figure><img src="assets/img/mural.jpg" alt="Hand-painted hamsa mural" loading="lazy"><figcaption>Murals</figcaption></figure>
-      <figure><img src="assets/img/lounge-corner.jpg" alt="Lounge corner with guitar and mirror" loading="lazy"><figcaption>Chill corner</figcaption></figure>
-      <figure><img src="assets/img/sunset.jpg" alt="Sunset over Amman" loading="lazy"><figcaption>Sunset</figcaption></figure>
-      <figure class="w2"><img src="assets/img/corner-room.jpg" alt="Corner room with panoramic windows over Amman" loading="lazy"><figcaption>Room with a view</figcaption></figure>
-      <figure><img src="assets/img/corridor.jpg" alt="Corridor with painted frieze" loading="lazy"><figcaption>Hallway</figcaption></figure>
-      <figure><img src="assets/img/entrance.jpg" alt="Entrance of The Castle Star" loading="lazy"><figcaption>Front door</figcaption></figure>
+      <figure class="w2 h2"><img src="assets/img/lounge.jpg" alt="Lounge with sofas and plant-filled shelves" loading="lazy" width="1200" height="900" srcset="assets/img/lounge-800.jpg 800w, assets/img/lounge.jpg 1200w" sizes="(max-width: 900px) 100vw, 50vw"><figcaption>The lounge</figcaption></figure>
+      <figure><img src="assets/img/kitchen.jpg" alt="Shared kitchen and dining table" loading="lazy" width="1200" height="900" srcset="assets/img/kitchen-800.jpg 800w, assets/img/kitchen.jpg 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw"><figcaption>Shared kitchen</figcaption></figure>
+      <figure><img src="assets/img/mural.jpg" alt="Hand-painted hamsa mural" loading="lazy" width="1200" height="900" srcset="assets/img/mural-800.jpg 800w, assets/img/mural.jpg 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw"><figcaption>Murals</figcaption></figure>
+      <figure><img src="assets/img/lounge-corner.jpg" alt="Lounge corner with guitar and mirror" loading="lazy" width="1200" height="900" srcset="assets/img/lounge-corner-800.jpg 800w, assets/img/lounge-corner.jpg 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw"><figcaption>Chill corner</figcaption></figure>
+      <figure><img src="assets/img/sunset.jpg" alt="Sunset over Amman" loading="lazy" width="720" height="720"><figcaption>Sunset</figcaption></figure>
+      <figure class="w2"><img src="assets/img/corner-room.jpg" alt="Corner room with panoramic windows over Amman" loading="lazy" width="1280" height="853" srcset="assets/img/corner-room-800.jpg 800w, assets/img/corner-room.jpg 1280w" sizes="(max-width: 900px) 100vw, 50vw"><figcaption>Room with a view</figcaption></figure>
+      <figure><img src="assets/img/corridor.jpg" alt="Corridor with painted frieze" loading="lazy" width="1280" height="852" srcset="assets/img/corridor-800.jpg 800w, assets/img/corridor.jpg 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw"><figcaption>Hallway</figcaption></figure>
+      <figure><img src="assets/img/entrance.jpg" alt="Entrance of The Castle Star" loading="lazy" width="1200" height="900" srcset="assets/img/entrance-800.jpg 800w, assets/img/entrance.jpg 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw"><figcaption>Front door</figcaption></figure>
     </div>
   </div>
 </section>
@@ -315,10 +333,56 @@
       <div class="fac"><svg><use href="#i-desk"/></svg><b>24-hour front desk</b><span>Arabic, English and Turkish spoken.</span></div>
       <div class="fac"><svg><use href="#i-lock"/></svg><b>Lockers &amp; luggage storage</b><span>Free, for before and after your stay.</span></div>
       <div class="fac"><svg><use href="#i-car"/></svg><b>Free parking</b><span>On site, for guests with a car.</span></div>
-      <div class="fac"><svg><use href="#i-plane"/></svg><b>Airport transfer</b><span><span class="fee">US$25</span> one way from Queen Alia, up to 4 people.</span></div>
+      <div class="fac"><svg><use href="#i-plane"/></svg><b>Airport transfer</b><span>Private car from Queen Alia Airport, <span class="fee">25 JD</span>.</span></div>
       <div class="fac"><svg><use href="#i-cup"/></svg><b>Breakfast available</b><span>Local favourites, juice, pancakes, cheese and fruit. Small extra charge.</span></div>
-      <div class="fac"><svg><use href="#i-map"/></svg><b>Tour desk</b><span>Walking tours and day trips, arranged at the desk.</span></div>
+      <div class="fac"><svg><use href="#i-map"/></svg><b>Day trips</b><span>Petra, Wadi Rum, Dead Sea, Jerash and more. <a href="#trips">See prices</a></span></div>
       <div class="fac"><svg><use href="#i-wash"/></svg><b>Laundry</b><span>Ask the desk for laundry service.</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ TRIPS ============ -->
+<section class="section trips" id="trips">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><svg><use href="#i-star"/></svg>Day trips &amp; transfers</span>
+      <h2>See Jordan from Amman, with a driver the team trusts.</h2>
+      <p>Prices are in Jordanian dinars (JD) for the <b>whole car, not per person</b>. Share a trip with other guests going the same way and split the cost.</p>
+    </div>
+    <div class="trips-grid">
+      <div class="trip-card reveal">
+        <h3><svg><use href="#i-map"/></svg>Day trips</h3>
+        <ul class="price-list">
+          <li><span>Jerash, Ajloun &amp; Umm Qais</span><b>80 <small>JD</small></b></li>
+          <li><span>Jerash &amp; Ajloun</span><b>65 <small>JD</small></b></li>
+          <li><span>Jerash</span><b>40 <small>JD</small></b></li>
+          <li><span>Madaba, Mount Nebo &amp; the Dead Sea</span><b>65 <small>JD</small></b></li>
+          <li><span>Dead Sea &amp; the Baptism Site</span><b>60 <small>JD</small></b></li>
+          <li><span>Dead Sea (3-hour wait)</span><b>50 <small>JD</small></b></li>
+          <li><span>Madaba, Mount Nebo &amp; the Dead Sea, with a stop in Petra</span><b>100 <small>JD</small></b></li>
+          <li><span>Wadi Rum &amp; Petra in one day (from Amman and back)</span><b>150 <small>JD</small></b></li>
+        </ul>
+      </div>
+      <div class="trip-card reveal">
+        <h3><svg><use href="#i-car"/></svg>Transfers</h3>
+        <ul class="price-list">
+          <li><span>Queen Alia Airport → hostel (private car)</span><b>25 <small>JD</small></b></li>
+          <li><span>Amman → Queen Alia Airport</span><b>20 <small>JD</small></b></li>
+          <li><span>Amman → King Hussein Bridge</span><b>25 <small>JD</small></b></li>
+          <li><span>Amman → Sheikh Hussein Bridge</span><b>50 <small>JD</small></b></li>
+          <li><span>Amman → Dead Sea</span><b>35 <small>JD</small></b></li>
+          <li><span>Dead Sea → Queen Alia Airport</span><b>35 <small>JD</small></b></li>
+          <li><span>Amman → Dana Reserve</span><b>75 <small>JD</small></b></li>
+          <li><span>Amman → Petra</span><b>80 <small>JD</small></b></li>
+          <li><span>Amman → Wadi Rum</span><b>100 <small>JD</small></b></li>
+          <li><span>Amman → Aqaba</span><b>100 <small>JD</small></b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="trips-cta reveal">
+      <p>Book a trip before you arrive or at reception. Wael and the team will sort out the details.</p>
+      <a class="btn btn-wa" href="https://wa.me/962780666888?text=Hello%20The%20Castle%20Star%21%20I%27d%20like%20to%20ask%20about%20a%20day%20trip%20/%20transfer%3A" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Ask about a trip on WhatsApp</a>
     </div>
   </div>
 </section>
@@ -361,10 +425,10 @@
         <li><b>12<small>min</small></b><span>Amman Citadel<em>Temple of Hercules and the Umayyad Palace</em></span></li>
         <li><b>19<small>min</small></b><span>Rainbow Street<em>Cafés, bars and rooftop restaurants</em></span></li>
       </ul>
-      <div class="arrive"><b>From the airport:</b> Queen Alia Airport is 32 km away. Book our transfer (US$25, up to 4 people), or take the Sariyah Express bus to Tabarbour station and a short taxi from there.</div>
+      <div class="arrive"><b>From the airport:</b> Queen Alia Airport is 32 km away. Book our private car (25 JD), or take the Sariyah Express bus to Tabarbour station and a short taxi from there.</div>
     </div>
     <div class="map reveal" id="map" data-src="https://www.google.com/maps?q=The%20Castle%20Star%20Hotel%2C%20Hashem%20Al-Kheir%20St%2C%20Amman%2C%20Jordan&amp;z=16&amp;output=embed">
-      <img src="assets/img/view-day.jpg" alt="Downtown Amman and the Roman Theatre seen from The Castle Star" loading="lazy">
+      <img src="assets/img/view-day.jpg" alt="Downtown Amman and the Roman Theatre seen from The Castle Star" loading="lazy" width="675" height="900">
       <div class="map-card">
         <svg><use href="#i-pin"/></svg>
         <b>The Castle Star</b>
@@ -396,7 +460,7 @@
       data-t-hello="Hello The Castle Star! I'd like to book:"
       data-t-room="Room" data-t-in="Check-in" data-t-out="Check-out" data-t-nights="nights" data-t-guests="Guests"
       data-t-name="Name" data-t-note="Note" data-t-est="Estimated" data-t-err="Please choose your check-in and check-out dates."
-      data-t-pick="Choose dates to see an estimate" data-t-per="per night" data-t-bed="bed">
+      data-t-pick="Choose dates to see an estimate" data-t-per="per night" data-t-pickup="Airport pickup: yes please" data-t-bed="bed">
       <label class="full">Room
         <select name="room" id="room">
           <option value="Double Room" data-price="47" data-unit="room">Double Room — from US$47</option>
@@ -415,6 +479,7 @@
       </label>
       <label>Your name<input type="text" name="name" id="name" autocomplete="name" placeholder="e.g. Sara"></label>
       <label class="full">Anything else? (optional)<textarea name="note" id="note" placeholder="Arrival time, airport pickup, breakfast…"></textarea></label>
+      <label class="check full"><input type="checkbox" id="pickup"> Add airport pickup (private car, 25 JD)</label>
       <div class="summary"><span id="sumText">Choose dates to see an estimate</span><b id="sumPrice">—</b></div>
       <p class="err" id="err" role="alert"></p>
       <button class="btn btn-wa" type="submit"><svg><use href="#i-wa"/></svg>Send request on WhatsApp</button>
@@ -442,11 +507,11 @@
     <div class="faq reveal">
       <span class="eyebrow"><svg><use href="#i-star"/></svg>Questions</span>
       <h2 style="font-size:clamp(32px,4vw,46px);margin:14px 0 10px">Before you arrive.</h2>
-      <details><summary>How do I get here from the airport?</summary><p>We can arrange a car from Queen Alia International Airport for US$25 one way (up to 4 people). Just add it to your WhatsApp message. On a budget? Take the Sariyah Express bus to Tabarbour station, then a short taxi to us.</p></details>
+      <details><summary>How do I get here from the airport?</summary><p>We can arrange a private car from Queen Alia International Airport for 25 JD. Going back, a car to the airport is 20 JD. Just add it to your WhatsApp message. On a budget? Take the Sariyah Express bus to Tabarbour station, then a short taxi to us.</p></details>
       <details><summary>Can I pay by card?</summary><p>Payment is in cash at the property. There are ATMs and money changers a few minutes' walk away in Downtown, and the desk can help with currency exchange.</p></details>
       <details><summary>Is there a women-only dorm?</summary><p>Yes. The 6-bed female dorm has privacy curtains and personal lockers for every bed.</p></details>
       <details><summary>Do you serve breakfast?</summary><p>Yes, for a small extra charge: local favourites with vegetarian and halal options, plus juice, pancakes, cheese and fruit. You're also welcome to cook in the shared kitchen.</p></details>
-      <details><summary>Can you help with tours?</summary><p>The tour desk arranges walking tours of old Amman and day trips around Jordan. Ask on WhatsApp before you arrive or at the desk.</p></details>
+      <details><summary>Can you help with tours?</summary><p>Yes. We arrange day trips by private car, from Jerash (40 JD) to Wadi Rum and Petra in one day (150 JD). Prices are for the whole car, so you can share with other guests. <a href="#trips">See all trips and prices</a>.</p></details>
       <details><summary>I'm arriving late. Is that OK?</summary><p>The front desk is open 24 hours. Check-in runs until midnight, so let us know your arrival time if you'll be later.</p></details>
       <details><summary>Is there parking?</summary><p>Yes, free parking is available for guests.</p></details>
     </div>
@@ -471,16 +536,21 @@
       </div>
       <div>
         <h4>Explore</h4>
-        <ul><li><a href="#rooms">Rooms &amp; prices</a></li><li><a href="#rooftop">The terrace</a></li><li><a href="#reviews">Reviews</a></li><li><a href="ar/" lang="ar">العربية</a></li></ul>
+        <ul><li><a href="#rooms">Rooms &amp; prices</a></li><li><a href="#rooftop">The terrace</a></li><li><a href="#trips">Day trips</a></li><li><a href="#reviews">Reviews</a></li><li><a href="ar/" lang="ar">العربية</a></li></ul>
       </div>
     </div>
-    <div class="foot-base"><span>© <span id="yr">2026</span> The Castle Star, Amman</span><span>Book direct, pay cash on arrival</span></div>
+    <div class="foot-base"><span>© <span id="yr">2026</span> The Castle Star, Amman</span><span>Book direct, pay cash on arrival · Website by <a href="https://github.com/jeeveshverma" target="_blank" rel="noopener">Jeevesh Verma</a></span></div>
   </div>
 </footer>
 
-<a class="btn btn-wa float-wa" href="#book"><svg><use href="#i-wa"/></svg>Book on WhatsApp</a>
+<a class="btn btn-wa float-wa" href="#book" aria-label="Book on WhatsApp"><svg><use href="#i-wa"/></svg>Book on WhatsApp</a>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo"><button type="button" aria-label="Close">×</button><img alt=""></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button type="button" class="lb-close" aria-label="Close">×</button>
+  <button type="button" class="lb-prev" aria-label="Previous photo">‹</button>
+  <figure><img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><figcaption></figcaption></figure>
+  <button type="button" class="lb-next" aria-label="Next photo">›</button>
+</div>
 
 <script src="assets/js/main.js" defer></script>
 </body>

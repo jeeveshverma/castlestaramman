@@ -13,6 +13,8 @@ assets/css/fonts.css  Self-hosted fonts (Fraunces, Manrope, Reem Kufi, IBM Plex 
 assets/js/main.js     Menu, room tabs, galleries, day/night view, lightbox, WhatsApp booking form
 assets/img/           Photos (from the hotel's Booking.com listing) and logo files
 favicon.png, apple-touch-icon.png
+404.html              Friendly "page not found" page (GitHub Pages uses it automatically)
+robots.txt, sitemap.xml  Help Google find both language versions
 .nojekyll             Tells GitHub Pages to serve the files exactly as they are
 ```
 
@@ -32,7 +34,8 @@ favicon.png, apple-touch-icon.png
 | Prices | the `US$…` values on the room cards, and `data-price` on each `<option>` in the booking form (both pages) |
 | Check-in / check-out times | House rules list (both pages) and `checkinTime` / `checkoutTime` in the JSON-LD in `index.html` |
 | Colours | `:root` at the top of `assets/css/style.css` |
-| Photos | replace the files in `assets/img/` and keep the same names |
+| Photos | replace the files in `assets/img/` and keep the same names (each large photo also has a smaller `-800.jpg` version for phones) |
+| Day trips & transfers | the `#trips` section in both pages (prices in JD, per car) |
 
 ## How booking works
 

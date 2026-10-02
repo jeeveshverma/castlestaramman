@@ -10,6 +10,7 @@
   var onScroll = function () {
     header.classList.toggle("scrolled", window.scrollY > 40);
     if (hero) document.body.classList.toggle("past-hero", window.scrollY > hero.offsetHeight - 120);
+    if (hero && window.scrollY < hero.offsetHeight * 0.6) $$("#nav a.active").forEach(function (a) { a.classList.remove("active"); });
   };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -83,22 +84,62 @@
     });
   }
 
-  /* ---- lightbox for mosaic ---- */
+  /* ---- lightbox for mosaic (prev / next / swipe / keyboard) ---- */
   var lb = $("#lightbox");
   if (lb) {
-    var lbImg = $("img", lb);
-    $$(".mosaic figure").forEach(function (f) {
+    var lbImg = $("img", lb), lbCap = $("figcaption", lb), figs = $$(".mosaic figure"), cur = 0, opener = null;
+    var rtl = document.documentElement.dir === "rtl";
+    var show = function (i) {
+      cur = (i + figs.length) % figs.length;
+      var im = $("img", figs[cur]), cap = $("figcaption", figs[cur]);
+      lbImg.src = im.currentSrc && im.currentSrc.indexOf("-800") === -1 ? im.currentSrc : im.src.replace("-800.jpg", ".jpg");
+      lbImg.alt = im.alt;
+      lbCap.textContent = cap ? cap.textContent : "";
+    };
+    var open = function (i) { opener = document.activeElement; show(i); lb.classList.add("open"); document.body.style.overflow = "hidden"; $(".lb-close", lb).focus(); };
+    var close = function () { lb.classList.remove("open"); document.body.style.overflow = ""; if (opener) opener.focus(); };
+    figs.forEach(function (f, i) {
       f.style.cursor = "zoom-in";
-      f.addEventListener("click", function () {
-        var im = $("img", f);
-        lbImg.src = im.src; lbImg.alt = im.alt;
-        lb.classList.add("open");
-        $("button", lb).focus();
-      });
+      f.tabIndex = 0;
+      f.setAttribute("role", "button");
+      f.addEventListener("click", function () { open(i); });
+      f.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(i); } });
     });
-    var close = function () { lb.classList.remove("open"); };
-    lb.addEventListener("click", function (e) { if (e.target !== lbImg) close(); });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+    $(".lb-close", lb).addEventListener("click", close);
+    $(".lb-prev", lb).addEventListener("click", function (e) { e.stopPropagation(); show(cur - 1); });
+    $(".lb-next", lb).addEventListener("click", function (e) { e.stopPropagation(); show(cur + 1); });
+    lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+    document.addEventListener("keydown", function (e) {
+      if (!lb.classList.contains("open")) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") show(cur + (rtl ? -1 : 1));
+      if (e.key === "ArrowLeft") show(cur + (rtl ? 1 : -1));
+    });
+    var lx = null;
+    lb.addEventListener("touchstart", function (e) { lx = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener("touchend", function (e) {
+      if (lx === null) return;
+      var dx = e.changedTouches[0].clientX - lx;
+      if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1) * (rtl ? -1 : 1));
+      lx = null;
+    });
+  }
+
+  /* ---- active nav link + hide floating button at the booking form ---- */
+  if ("IntersectionObserver" in window) {
+    var links = {};
+    $$('#nav a[href^="#"]:not(.btn)').forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+    var spy = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.target.id === "book") document.body.classList.toggle("at-book", e.isIntersecting);
+        var a = links[e.target.id];
+        if (a && e.isIntersecting) {
+          Object.keys(links).forEach(function (k) { links[k].classList.remove("active"); });
+          a.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    $$("main section[id]").forEach(function (s) { spy.observe(s); });
   }
 
   /* ---- map: load Google Maps only when asked (faster, more private) ---- */
@@ -139,9 +180,17 @@
     var n = Math.round((new Date(dout.value) - new Date(din.value)) / 864e5);
     return n > 0 ? n : 0;
   }
+  var AR = document.documentElement.lang === "ar";
   function fmtDate(v) {
     var d = new Date(v + "T00:00:00");
-    return d.toLocaleDateString(document.documentElement.lang === "ar" ? "ar-JO" : "en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
+    return d.toLocaleDateString(AR ? "ar-JO-u-nu-latn" : "en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  }
+  function nightsLabel(n) {
+    if (!AR) return n + " " + (n === 1 ? "night" : "nights");
+    if (n === 1) return "ليلة واحدة";
+    if (n === 2) return "ليلتان";
+    if (n <= 10) return n + " ليالٍ";
+    return n + " ليلة";
   }
   function update() {
     var opt = room.options[room.selectedIndex];
@@ -154,8 +203,8 @@
     if (!n) { sumText.textContent = T.tPick; sumPrice.textContent = "—"; return; }
     var qty = unit === "bed" ? g : 1;
     var total = price * qty * n;
-    sumText.textContent = T.tEst + " · " + n + " " + T.tNights + (unit === "bed" ? " · " + g + " × " + T.tBed : "");
-    sumPrice.textContent = "US$" + total;
+    sumText.textContent = T.tEst + " · " + nightsLabel(n) + (unit === "bed" ? " · " + g + " × " + T.tBed : "");
+    sumPrice.textContent = "US$" + total + " ≈ " + Math.round(total * 0.709) + (AR ? " دينار" : " JD");
   }
   [room, din, dout, guests].forEach(function (el) { el.addEventListener("change", update); });
 
@@ -180,9 +229,10 @@
       "",
       "• " + T.tRoom + ": " + opt.value,
       "• " + T.tIn + ": " + fmtDate(din.value),
-      "• " + T.tOut + ": " + fmtDate(dout.value) + " (" + n + " " + T.tNights + ")",
+      "• " + T.tOut + ": " + fmtDate(dout.value) + " (" + nightsLabel(n) + ")",
       "• " + T.tGuests + ": " + guests.value
     ];
+    var pk = $("#pickup"); if (pk && pk.checked) lines.push("• " + T.tPickup);
     if (nameI.value.trim()) lines.push("• " + T.tName + ": " + nameI.value.trim());
     if (note.value.trim()) lines.push("• " + T.tNote + ": " + note.value.trim());
     var url = "https://wa.me/" + T.wa + "?text=" + encodeURIComponent(lines.join("\n"));
