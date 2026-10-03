@@ -513,3 +513,30 @@ html[dir="rtl"] .trips-added li { padding: 8px 14px 8px 8px; }
 .taxi-tel { font-size: 22px; font-weight: 700; color: var(--ember-deep); text-decoration: none; }
 
 .trips-hint { margin-top: 6px; font-size: 15px; color: var(--ink-soft); }
+
+/* language menu */
+.nav .langs { position: relative; color: var(--white); }
+.site-header.scrolled .nav .langs { color: var(--ink); }
+.nav .langs summary { list-style: none; display: inline-flex; align-items: center; gap: 6px; border: 1px solid currentColor; border-radius: 999px; padding: 6px 12px; font-weight: 700; font-size: 13px; letter-spacing: .06em; cursor: pointer; user-select: none; opacity: .92; }
+.nav .langs summary::-webkit-details-marker { display: none; }
+.nav .langs summary svg { width: 16px; height: 16px; }
+.nav .langs summary:hover, .nav .langs[open] summary { opacity: 1; }
+.nav .langs ul { position: absolute; top: calc(100% + 10px); right: 0; z-index: 60; list-style: none; margin: 0; padding: 6px; min-width: 170px; background: var(--white); border-radius: 14px; box-shadow: var(--shadow); max-height: 70vh; overflow: auto; }
+html[dir="rtl"] .nav .langs ul { right: auto; left: 0; }
+.nav .langs ul a { display: block; padding: 9px 12px; border-radius: 9px; color: var(--ink) !important; font: 500 15px/1.2 system-ui, -apple-system, "Segoe UI", sans-serif; opacity: 1; border: 0; }
+.nav .langs ul a:hover { background: var(--stone); }
+.nav .langs ul a[aria-current] { font-weight: 700; color: var(--ember-deep) !important; }
+@media (max-width: 900px) {
+  .nav .langs { color: var(--ink); border-bottom: 1px solid var(--line); }
+  .nav .langs summary { border: 0; border-radius: 0; padding: 14px 4px; font-size: 15px; }
+  .nav .langs ul { position: static; box-shadow: none; background: none; padding: 0 0 10px; display: grid; grid-template-columns: 1fr 1fr; max-height: none; }
+  .nav .langs ul a { padding: 10px 4px; }
+}
+
+/* languages without Fraunces/Manrope glyphs: Chinese, Japanese, Korean use the system's fonts */
+html[lang="zh-Hans"] { --display: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Serif SC", serif; --body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif; }
+html[lang="ja"] { --display: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; --body: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Noto Sans JP", sans-serif; }
+html[lang="ko"] { --display: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Serif KR", serif; --body: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif; }
+html:is([lang="zh-Hans"], [lang="ja"], [lang="ko"]) :is(.eyebrow, .wordmark small, .taxi-for) { letter-spacing: .06em; }
+html[lang="ko"] body { word-break: keep-all; }
+html[lang="ja"] body, html[lang="zh-Hans"] body { line-break: strict; }

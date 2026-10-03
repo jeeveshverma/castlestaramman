@@ -27,6 +27,13 @@
     });
   }
 
+  /* ---- language menu: close on outside click or Esc ---- */
+  var langs = $("details.langs");
+  if (langs) {
+    document.addEventListener("click", function (e) { if (!langs.contains(e.target)) langs.open = false; });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") langs.open = false; });
+  }
+
   /* ---- room tabs ---- */
   $$(".room-tabs [role=tab]").forEach(function (tab) {
     tab.addEventListener("click", function () {
@@ -48,7 +55,7 @@
     imgs.forEach(function (_, n) {
       var b = document.createElement("button");
       b.type = "button";
-      b.setAttribute("aria-label", "Photo " + (n + 1));
+      b.setAttribute("aria-label", (document.body.dataset.tPhoto || "Photo") + " " + (n + 1));
       if (n === 0) b.className = "on";
       b.addEventListener("click", function (e) { e.stopPropagation(); show(n); });
       dots.appendChild(b);
@@ -202,6 +209,11 @@
     if (n <= 10) return n + " ليالٍ";
     return n + " ليلة";
   }
+  // On screen, in the page's language. The message to the hostel uses nightsLabel().
+  function uiNights(n) {
+    if (AR || !T.uiNight) return nightsLabel(n);
+    return n + " " + (n === 1 ? T.uiNight : T.uiNights);
+  }
   function update() {
     var opt = room.options[room.selectedIndex];
     var price = +opt.dataset.price, unit = opt.dataset.unit, g = +guests.value, n = nights();
@@ -213,7 +225,7 @@
     if (!n) { sumText.textContent = T.tPick; sumPrice.textContent = "—"; return; }
     var qty = unit === "bed" ? g : 1;
     var total = price * qty * n;
-    sumText.textContent = T.tEst + " · " + nightsLabel(n) + (unit === "bed" ? " · " + g + " × " + T.tBed : "");
+    sumText.textContent = T.tEst + " · " + uiNights(n) + (unit === "bed" ? " · " + g + " × " + T.tBed : "");
     sumPrice.textContent = "US$" + total + " ≈ " + Math.round(total * 0.709) + (AR ? " دينار" : " JD");
   }
   [room, din, dout, guests].forEach(function (el) { el.addEventListener("change", update); });
