@@ -163,6 +163,16 @@
     $$(".reveal").forEach(function (el) { el.classList.add("in"); });
   }
 
+  /* ---- taxi card: the address in Arabic, full screen ---- */
+  var taxi = $("#taxi"), taxiBtn = $("#taxiBtn");
+  if (taxi && taxiBtn && typeof taxi.showModal === "function") {
+    taxiBtn.addEventListener("click", function () { taxi.showModal(); });
+    $("#taxiClose").addEventListener("click", function () { taxi.close(); });
+    taxi.addEventListener("click", function (e) { if (e.target === taxi) taxi.close(); });
+  } else if (taxiBtn) {
+    taxiBtn.hidden = true;
+  }
+
   /* ---- WhatsApp booking form ---- */
   var form = $("#bookForm");
   if (!form) return;
@@ -208,6 +218,42 @@
   }
   [room, din, dout, guests].forEach(function (el) { el.addEventListener("change", update); });
 
+  // Day trips & transfers added from the price lists. "name" goes in the message
+  // (English, or Arabic on the Arabic page); "label" is what the visitor reads.
+  var picked = [], tripsBox = $("#tripsAdded"), tripSum = $("#tripSum");
+  function renderTrips() {
+    var ul = $("ul", tripsBox);
+    ul.innerHTML = "";
+    picked.forEach(function (t) {
+      var li = document.createElement("li"), s = document.createElement("span"), b = document.createElement("b"), x = document.createElement("button");
+      s.textContent = t.label;
+      b.textContent = t.price + " " + T.tJd;
+      x.type = "button";
+      x.textContent = "×";
+      x.setAttribute("aria-label", tripsBox.dataset.remove + ": " + t.label);
+      x.addEventListener("click", function () { toggleTrip(t); });
+      li.append(s, b, x);
+      ul.appendChild(li);
+    });
+    tripsBox.hidden = tripSum.hidden = !picked.length;
+    $("b", tripSum).textContent = picked.reduce(function (a, t) { return a + t.price; }, 0) + " " + T.tJd;
+    $$(".add-trip").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", picked.some(function (t) { return t.name === btn.dataset.trip; }));
+    });
+  }
+  function toggleTrip(t) {
+    var had = picked.some(function (x) { return x.name === t.name; });
+    picked = had ? picked.filter(function (x) { return x.name !== t.name; }) : picked.concat([t]);
+    renderTrips();
+  }
+  if (tripsBox && tripSum) {
+    $$(".add-trip").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        toggleTrip({ name: btn.dataset.trip, label: $("span", btn.parentNode).textContent, price: +btn.dataset.price });
+      });
+    });
+  }
+
   // "Book" buttons on room cards preselect the room
   $$("[data-pick]").forEach(function (b) {
     b.addEventListener("click", function () {
@@ -233,6 +279,7 @@
       "• " + T.tGuests + ": " + guests.value
     ];
     var pk = $("#pickup"); if (pk && pk.checked) lines.push("• " + T.tPickup);
+    if (picked.length) lines.push("• " + T.tTrips + ": " + picked.map(function (t) { return t.name + " (" + t.price + " " + T.tJd + ")"; }).join(AR ? "؛ " : "; "));
     if (nameI.value.trim()) lines.push("• " + T.tName + ": " + nameI.value.trim());
     if (note.value.trim()) lines.push("• " + T.tNote + ": " + note.value.trim());
     var url = "https://wa.me/" + T.wa + "?text=" + encodeURIComponent(lines.join("\n"));

@@ -319,34 +319,35 @@
       <span class="eyebrow"><svg><use href="#i-star"/></svg>رحلات يومية وتوصيل</span>
       <h2>اكتشف الأردن انطلاقًا من عمّان، مع سائق يثق به الفريق.</h2>
       <p>الأسعار بالدينار الأردني <b>للسيارة كاملة وليست للشخص</b>. شارك الرحلة مع نزلاء آخرين ذاهبين إلى الوجهة نفسها لتقسيم التكلفة.</p>
+      <p class="trips-hint">اضغط <b>+</b> لإضافة رحلة إلى طلب الحجز.</p>
     </div>
     <div class="trips-grid">
       <div class="trip-card reveal">
         <h3><svg><use href="#i-map"/></svg>رحلات يومية</h3>
         <ul class="price-list">
-          <li><span>جرش وعجلون وأم قيس</span><b>80 <small>دينار</small></b></li>
-          <li><span>جرش وعجلون</span><b>65 <small>دينار</small></b></li>
-          <li><span>جرش</span><b>40 <small>دينار</small></b></li>
-          <li><span>مادبا وجبل نيبو والبحر الميت</span><b>65 <small>دينار</small></b></li>
-          <li><span>البحر الميت والمغطس</span><b>60 <small>دينار</small></b></li>
-          <li><span>البحر الميت (انتظار 3 ساعات)</span><b>50 <small>دينار</small></b></li>
-          <li><span>مادبا وجبل نيبو والبحر الميت مع توقف في البتراء</span><b>100 <small>دينار</small></b></li>
-          <li><span>وادي رم والبتراء في يوم واحد (ذهابًا وإيابًا من عمّان)</span><b>150 <small>دينار</small></b></li>
+          <li><span>جرش وعجلون وأم قيس</span><b>80 <small>دينار</small></b><button type="button" class="add-trip" data-trip="جرش وعجلون وأم قيس" data-price="80" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>جرش وعجلون</span><b>65 <small>دينار</small></b><button type="button" class="add-trip" data-trip="جرش وعجلون" data-price="65" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>جرش</span><b>40 <small>دينار</small></b><button type="button" class="add-trip" data-trip="جرش" data-price="40" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>مادبا وجبل نيبو والبحر الميت</span><b>65 <small>دينار</small></b><button type="button" class="add-trip" data-trip="مادبا وجبل نيبو والبحر الميت" data-price="65" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>البحر الميت والمغطس</span><b>60 <small>دينار</small></b><button type="button" class="add-trip" data-trip="البحر الميت والمغطس" data-price="60" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>البحر الميت (انتظار 3 ساعات)</span><b>50 <small>دينار</small></b><button type="button" class="add-trip" data-trip="البحر الميت (انتظار 3 ساعات)" data-price="50" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>مادبا وجبل نيبو والبحر الميت مع توقف في البتراء</span><b>100 <small>دينار</small></b><button type="button" class="add-trip" data-trip="مادبا وجبل نيبو والبحر الميت مع توقف في البتراء" data-price="100" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>وادي رم والبتراء في يوم واحد (ذهابًا وإيابًا من عمّان)</span><b>150 <small>دينار</small></b><button type="button" class="add-trip" data-trip="وادي رم والبتراء في يوم واحد (ذهابًا وإيابًا من عمّان)" data-price="150" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
         </ul>
       </div>
       <div class="trip-card reveal">
         <h3><svg><use href="#i-car"/></svg>التوصيل</h3>
         <ul class="price-list">
-          <li><span>مطار الملكة علياء ← النُزل (سيارة خاصة)</span><b>25 <small>دينار</small></b></li>
-          <li><span>عمّان ← مطار الملكة علياء</span><b>20 <small>دينار</small></b></li>
-          <li><span>عمّان ← جسر الملك حسين</span><b>25 <small>دينار</small></b></li>
-          <li><span>عمّان ← جسر الشيخ حسين</span><b>50 <small>دينار</small></b></li>
-          <li><span>عمّان ← البحر الميت</span><b>35 <small>دينار</small></b></li>
-          <li><span>البحر الميت ← مطار الملكة علياء</span><b>35 <small>دينار</small></b></li>
-          <li><span>عمّان ← محمية ضانا</span><b>75 <small>دينار</small></b></li>
-          <li><span>عمّان ← البتراء</span><b>80 <small>دينار</small></b></li>
-          <li><span>عمّان ← وادي رم</span><b>100 <small>دينار</small></b></li>
-          <li><span>عمّان ← العقبة</span><b>100 <small>دينار</small></b></li>
+          <li><span>مطار الملكة علياء ← النُزل (سيارة خاصة)</span><b>25 <small>دينار</small></b><button type="button" class="add-trip" data-trip="مطار الملكة علياء ← النُزل (سيارة خاصة)" data-price="25" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>عمّان ← مطار الملكة علياء</span><b>20 <small>دينار</small></b><button type="button" class="add-trip" data-trip="عمّان ← مطار الملكة علياء" data-price="20" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>عمّان ← جسر الملك حسين</span><b>25 <small>دينار</small></b><button type="button" class="add-trip" data-trip="عمّان ← جسر الملك حسين" data-price="25" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>عمّان ← جسر الشيخ حسين</span><b>50 <small>دينار</small></b><button type="button" class="add-trip" data-trip="عمّان ← جسر الشيخ حسين" data-price="50" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>عمّان ← البحر الميت</span><b>35 <small>دينار</small></b><button type="button" class="add-trip" data-trip="عمّان ← البحر الميت" data-price="35" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>البحر الميت ← مطار الملكة علياء</span><b>35 <small>دينار</small></b><button type="button" class="add-trip" data-trip="البحر الميت ← مطار الملكة علياء" data-price="35" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>عمّان ← محمية ضانا</span><b>75 <small>دينار</small></b><button type="button" class="add-trip" data-trip="عمّان ← محمية ضانا" data-price="75" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>عمّان ← البتراء</span><b>80 <small>دينار</small></b><button type="button" class="add-trip" data-trip="عمّان ← البتراء" data-price="80" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>عمّان ← وادي رم</span><b>100 <small>دينار</small></b><button type="button" class="add-trip" data-trip="عمّان ← وادي رم" data-price="100" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
+          <li><span>عمّان ← العقبة</span><b>100 <small>دينار</small></b><button type="button" class="add-trip" data-trip="عمّان ← العقبة" data-price="100" aria-pressed="false" aria-label="أضِف إلى طلبي"></button></li>
         </ul>
       </div>
     </div>
@@ -395,6 +396,7 @@
         <li><b>19<small>د</small></b><span>شارع الرينبو<em>مقاهٍ ومطاعم على الأسطح</em></span></li>
       </ul>
       <div class="arrive"><b>من المطار:</b> يبعد مطار الملكة علياء الدولي 32 كم. احجز سيارتنا الخاصة (25 دينارًا)، أو استقل حافلة السرية إكسبرس إلى مجمع طبربور ثم تاكسي قصير إلينا.</div>
+      <button type="button" class="btn btn-ghost-dark taxi-btn" id="taxiBtn"><svg><use href="#i-car"/></svg>اعرضها على سائق التاكسي</button>
     </div>
     <div class="map reveal" id="map" data-src="https://www.google.com/maps?q=The%20Castle%20Star%20Hotel%2C%20Hashem%20Al-Kheir%20St%2C%20Amman%2C%20Jordan&amp;z=16&amp;hl=ar&amp;output=embed">
       <img src="../assets/img/view-day.jpg" alt="وسط عمّان والمدرج الروماني كما يُرى من ذا كاسل ستار" loading="lazy" width="675" height="900">
@@ -428,7 +430,7 @@
       data-t-hello="مرحبًا ذا كاسل ستار! أود الحجز:"
       data-t-room="الغرفة" data-t-in="الوصول" data-t-out="المغادرة" data-t-nights="ليالٍ" data-t-guests="عدد الضيوف"
       data-t-name="الاسم" data-t-note="ملاحظة" data-t-est="تقدير" data-t-err="يرجى اختيار تاريخي الوصول والمغادرة."
-      data-t-pick="اختر التواريخ لرؤية تقدير للسعر" data-t-per="لليلة" data-t-pickup="التوصيل من المطار: نعم من فضلك" data-t-bed="سرير">
+      data-t-pick="اختر التواريخ لرؤية تقدير للسعر" data-t-per="لليلة" data-t-pickup="التوصيل من المطار: نعم من فضلك" data-t-trips="الرحلات والتنقلات" data-t-jd="دينار" data-t-bed="سرير">
       <label class="full">الغرفة
         <select name="room" id="room">
           <option value="غرفة مزدوجة (Double Room)" data-price="47" data-unit="room">غرفة مزدوجة — من 47 دولارًا</option>
@@ -448,7 +450,9 @@
       <label>اسمك<input type="text" name="name" id="name" autocomplete="name" placeholder="مثال: سارة"></label>
       <label class="full">هل من شيء آخر؟ (اختياري)<textarea name="note" id="note" placeholder="وقت الوصول، التوصيل من المطار، الإفطار…"></textarea></label>
       <label class="check full"><input type="checkbox" id="pickup"> أضِف التوصيل من المطار (سيارة خاصة، 25 دينارًا)</label>
+      <div class="trips-added full" id="tripsAdded" data-remove="إزالة" aria-live="polite" hidden><span class="lbl">الرحلات والتنقلات</span><ul></ul></div>
       <div class="summary"><span id="sumText">اختر التواريخ لرؤية تقدير للسعر</span><b id="sumPrice">—</b></div>
+      <div class="summary trips-sum" id="tripSum" hidden><span>الرحلات والتنقلات (للسيارة كاملة)</span><b></b></div>
       <p class="err" id="err" role="alert"></p>
       <button class="btn btn-wa" type="submit"><svg><use href="#i-wa"/></svg>أرسل الطلب عبر واتساب</button>
       <p class="fine">يفتح واتساب على الرقم <bdi dir="ltr">+962 78 066 6888</bdi>. لا يُؤكَّد الحجز إلا بعد ردّنا.</p>
@@ -485,6 +489,18 @@
   </div>
 </section>
 </main>
+
+<dialog class="taxi" id="taxi" aria-labelledby="taxiFor">
+  <p class="taxi-for" id="taxiFor">اعرض هذه البطاقة على السائق</p>
+  <div class="taxi-ar" lang="ar" dir="rtl">
+    <p class="t1">من فضلك خذني إلى</p>
+    <p class="t2">فندق ذا كاسل ستار <span dir="ltr">(The Castle Star)</span></p>
+    <p class="t3">مبنى 1، شارع هاشم الخير، وسط البلد، عمّان</p>
+    <p class="t4">أسفل جبل القلعة، بالقرب من المدرج الروماني</p>
+  </div>
+  <a class="taxi-tel" href="tel:+962780666888" dir="ltr">+962 78 066 6888</a>
+  <button type="button" class="btn btn-dark" id="taxiClose">إغلاق</button>
+</dialog>
 
 <footer class="site-footer">
   <div class="wrap">

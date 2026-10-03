@@ -478,3 +478,38 @@ html[dir="rtl"] .lightbox .lb-prev { left: auto; right: 16px; } html[dir="rtl"] 
 
 @media (prefers-reduced-motion: reduce) { .hero-cue::after { animation: none; } }
 @media (max-width: 640px) { .hero-cue { display: none; } }
+
+/* add day trips & transfers to the booking request */
+.price-list li span { flex: 1; }
+.add-trip { flex: none; align-self: center; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--ember); background: transparent; color: var(--ember-deep); font: 700 18px/1 var(--body); cursor: pointer; display: grid; place-items: center; transition: background .15s, color .15s; }
+.add-trip::before { content: "+"; }
+.add-trip:hover { background: rgba(223, 95, 42, .1); }
+.add-trip[aria-pressed="true"] { background: var(--ember); color: var(--white); }
+.add-trip[aria-pressed="true"]::before { content: "✓"; font-size: 15px; }
+.trips-added { grid-column: 1 / -1; display: grid; gap: 8px; }
+.trips-added .lbl { font-size: 13px; font-weight: 700; color: var(--ink-soft); }
+.trips-added ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.trips-added li { display: flex; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 8px 8px 8px 14px; font-size: 14.5px; }
+html[dir="rtl"] .trips-added li { padding: 8px 14px 8px 8px; }
+.trips-added li span { flex: 1; }
+.trips-added li b { white-space: nowrap; color: var(--ember-deep); }
+.trips-added li button { width: 30px; height: 30px; border-radius: 50%; border: 0; background: var(--stone); font-size: 18px; line-height: 1; cursor: pointer; }
+.trips-added li button:hover { background: var(--stone-deep); }
+.form .summary.trips-sum b { font-size: 20px; }
+
+/* taxi card */
+.taxi-btn { margin-top: 16px; }
+.taxi { border: 0; border-radius: 22px; padding: 28px 26px; width: min(560px, calc(100vw - 32px)); background: var(--white); color: var(--ink); text-align: center; box-shadow: 0 30px 80px -30px rgba(0,0,0,.6); }
+.taxi::backdrop { background: rgba(21, 22, 46, .82); }
+.taxi[open] { display: grid; gap: 18px; justify-items: center; }
+.taxi-for { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.taxi-ar { display: grid; gap: 8px; font-family: "IBM Plex Sans Arabic", var(--body); }
+.taxi-ar p { margin: 0; }
+.taxi-ar .t1 { font-size: 20px; color: var(--ink-soft); }
+.taxi-ar .t2 { font-family: "Reem Kufi", "IBM Plex Sans Arabic", sans-serif; font-size: clamp(30px, 8vw, 42px); line-height: 1.25; color: var(--night); }
+.taxi-ar .t2 span { display: block; font-family: var(--display); font-size: 18px; color: var(--ink-soft); }
+.taxi-ar .t3 { font-size: clamp(22px, 5.6vw, 28px); font-weight: 700; line-height: 1.45; }
+.taxi-ar .t4 { font-size: clamp(18px, 4.6vw, 22px); color: var(--ink-soft); }
+.taxi-tel { font-size: 22px; font-weight: 700; color: var(--ember-deep); text-decoration: none; }
+
+.trips-hint { margin-top: 6px; font-size: 15px; color: var(--ink-soft); }
