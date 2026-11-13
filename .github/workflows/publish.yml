@@ -1,0 +1,49 @@
+# Rebuild and deploy the site on every change to main, including a save from the
+# dashboard at /admin/ (which commits data/content.json and photos).
+name: Publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# One at a time, in order, so an older save can never be deployed over a newer one.
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04 # ships Python 3.12, which tools/build.py needs
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build every language from data/content.json
+        run: python3 tools/build.py
+
+      # The repository root is the site, so keep the built pages in it. A change to
+      # sitemap.xml alone is only today's date and is not worth a commit.
+      - name: Keep the built pages in the repository
+        run: |
+          if [ -n "$(git status --porcelain -- . ':!sitemap.xml')" ]; then
+            git config user.name "jeeveshverma"
+            git config user.email "67497634+jeeveshverma@users.noreply.github.com"
+            git add -A
+            git commit -m "Build pages from dashboard changes"
+            git push || echo "::warning::main moved on while building; the newer run will commit the pages."
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
