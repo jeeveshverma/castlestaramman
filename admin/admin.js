@@ -73,7 +73,7 @@
   }
   function explain(e) {
     if (e.friendly) return e.message;
-    if (e.status === 401) return "Your access key was not accepted. It may have expired. Sign out and enter a new key.";
+    if (e.status === 401) return "The access key behind this login has expired. Please tell Jeevesh.";
     if (e.write && (e.status === 403 || e.status === 404)) return "This access key can open the dashboard but is not allowed to publish. Ask Jeevesh for a new key.";
     if (e.status === 409 || e.status === 422) return "Someone else published at the same moment. Reload the page and try again.";
     if (e.status === 403 || e.status === 429) return "GitHub is asking us to slow down. Wait a minute and try again.";
@@ -573,8 +573,28 @@
     bar();
   }
 
+  // The login is not checked by a server (there is none). The password unlocks the
+  // GitHub access key kept, locked, in admin/access.json (made by tools/make_login.mjs).
+  function unlock(login, password) {
+    function bytes(s) { var bin = atob(s), out = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i); return out; }
+    return fetch("access.json", { cache: "no-store" }).then(function (r) {
+      if (!r.ok) throw friendly("The login has not been set up yet. Ask Jeevesh.");
+      return r.json();
+    }).then(function (a) {
+      var enc = new TextEncoder();
+      return crypto.subtle.importKey("raw", enc.encode(login.trim().toLowerCase() + "\n" + password.trim()), "PBKDF2", false, ["deriveKey"]).then(function (material) {
+        return crypto.subtle.deriveKey({ name: "PBKDF2", hash: "SHA-256", salt: bytes(a.salt), iterations: a.iterations }, material, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+      }).then(function (key) {
+        return crypto.subtle.decrypt({ name: "AES-GCM", iv: bytes(a.iv) }, key, bytes(a.data));
+      }).then(function (plain) { return new TextDecoder().decode(plain); }, function () {
+        throw friendly("That login or password is not right. Check the spelling and try again.");
+      });
+    });
+  }
+
   function renderSignIn(message) {
-    var input = h("input", { type: "password", autocomplete: "off", spellcheck: false, placeholder: "Paste your access key", "aria-label": "Access key" });
+    var login = h("input", { type: "text", autocomplete: "username", autocapitalize: "none", "aria-label": "Login", placeholder: "Login" });
+    var password = h("input", { type: "password", autocomplete: "current-password", "aria-label": "Password", placeholder: "Password" });
     var msg = h("p", { class: "status bad", role: "alert", hidden: !message, text: message || "" });
     var btn = h("button", { type: "submit", class: "btn primary" }, "Open the dashboard");
     app.replaceChildren(h("main", { class: "signin" },
@@ -583,16 +603,15 @@
       h("p", { text: "Change room prices, trips, questions, review scores and photos on the hostel's website." }),
       h("form", { onsubmit: function (e) {
         e.preventDefault();
-        var key = input.value.trim();
-        if (!key) return;
+        if (!login.value.trim() || !password.value.trim()) return;
         btn.disabled = true;
         btn.textContent = "Checking…";
-        start(key).catch(function (err) {
+        unlock(login.value, password.value).then(start).catch(function (err) {
           S.token = null;
-          renderSignIn(err.status === 401 ? "That access key was not accepted. Check that you pasted all of it." : explain(err));
+          renderSignIn(err.status === 401 ? "The login is right, but the access key behind it has expired. Please tell Jeevesh." : explain(err));
         });
-      } }, msg, input, btn),
-      h("p", { class: "hint", text: "The key is kept on this device only. Use “Sign out” on a shared phone or computer." })));
+      } }, msg, login, password, btn),
+      h("p", { class: "hint", text: "You stay signed in on this device. Use “Sign out” on a shared phone or computer." })));
   }
 
   function signOut() {
@@ -624,7 +643,7 @@
   if (stored) {
     start(stored).catch(function (err) {
       S.token = null;
-      renderSignIn(err.status === 401 ? "Your access key is no longer accepted. Enter a new one." : explain(err));
+      renderSignIn(err.status === 401 ? "Please sign in again." : explain(err));
     });
   } else {
     renderSignIn();

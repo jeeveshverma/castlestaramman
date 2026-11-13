@@ -23,9 +23,14 @@ admin/                The dashboard the hostel uses to change them (see **Dashbo
 
 ## Dashboard
 
-`/admin/` is a page where the hostel changes room prices, day trips and transfers, the questions and answers, the review scores and the photos, without touching HTML. It has no server: it signs in with a GitHub access key and commits `data/content.json` (and any new photos) to this repository. The **Publish** workflow then runs `tools/build.py`, which writes the values into `index.html` and `ar/index.html`, rebuilds the other ten languages, and deploys. A change is live about a minute after pressing Publish, and the dashboard says when it is.
+`/admin/` is a page where the hostel changes room prices, day trips and transfers, the questions and answers, the review scores and the photos, without touching HTML. It has no server: it commits `data/content.json` (and any new photos) to this repository. The **Publish** workflow then runs `tools/build.py`, which writes the values into `index.html` and `ar/index.html`, rebuilds the other ten languages, and deploys. A change is live about a minute after pressing Publish, and the dashboard says when it is.
 
-**Access key.** On GitHub: Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token. Repository access: only `castlestaramman`. Permissions: **Contents: Read and write**, nothing else. Paste the key into the dashboard once per device. To hand it over in one message, send the link `…/admin/#key=THE_KEY`; the part after `#` never leaves the browser. Delete the token on GitHub to take access away.
+**Login.** The hostel signs in with a login and a password. Nothing checks them on a server: the password unlocks a GitHub access key that is kept, encrypted, in `admin/access.json`. To set it up or change the password:
+
+1. On GitHub: Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token. Repository access: only `castlestaramman`. Permissions: **Contents: Read and write**, nothing else.
+2. Run `CS_TOKEN=github_pat_… node tools/make_login.mjs <login> [password]` (leave the password out to get a four-word one), then commit and push `admin/access.json`.
+
+The locked key is public, so anyone can try passwords against it for as long as they like: keep the password long (the script refuses under 12 characters) and the token limited to this repository. Deleting the token on GitHub locks everyone out at once. A link `…/admin/#key=THE_TOKEN` also signs in, without the password.
 
 **What it changes.** `tools/content.py` lists every place a value goes. It checks how many places it found, and stops the build if the page no longer has them, so after rewording a price, a trip line or a question by hand, run `python3 tools/build.py` and read the message. Change these values in `data/content.json` (or the dashboard), not in the HTML: the build writes over them.
 
