@@ -2,6 +2,7 @@
 """Build the extra language versions of the site.
 
 index.html (English) and ar/index.html (Arabic) are written by hand. This script:
+  0. writes data/content.json (prices, trips, questions, review scores) into both pages,
   1. keeps the language switcher and hreflang links in every page up to date,
   2. writes data/i18n/_source.json, every English string on the page,
   3. translates index.html into each language that has data/i18n/<code>.json,
@@ -18,6 +19,7 @@ import sys
 from datetime import date
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import content  # noqa: E402
 import i18n  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -106,6 +108,12 @@ def localise(html, code):
 
 
 def main():
+    try:
+        changed = content.apply()
+    except content.ContentError as e:
+        sys.exit(f"Not built. {e}")
+    if changed:
+        print(f"  data/content.json written into: {', '.join(changed)}")
     en_path, ar_path = ROOT / "index.html", ROOT / "ar/index.html"
     en = shared(en_path.read_text(encoding="utf-8"), "en")
     en_path.write_text(en, encoding="utf-8")

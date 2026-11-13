@@ -16,7 +16,22 @@ favicon.png, apple-touch-icon.png
 404.html              Friendly "page not found" page (GitHub Pages uses it automatically)
 robots.txt, sitemap.xml  Help Google find both language versions
 .nojekyll             Tells GitHub Pages to serve the files exactly as they are
+data/content.json     Room prices, trips, questions and review scores (edited by the dashboard)
+admin/                The dashboard the hostel uses to change them (see **Dashboard**)
+.github/workflows/publish.yml  Rebuilds and deploys the site on every change to main
 ```
+
+## Dashboard
+
+`/admin/` is a page where the hostel changes room prices, day trips and transfers, the questions and answers, the review scores and the photos, without touching HTML. It has no server: it signs in with a GitHub access key and commits `data/content.json` (and any new photos) to this repository. The **Publish** workflow then runs `tools/build.py`, which writes the values into `index.html` and `ar/index.html`, rebuilds the other ten languages, and deploys. A change is live about a minute after pressing Publish, and the dashboard says when it is.
+
+**Access key.** On GitHub: Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token. Repository access: only `castlestaramman`. Permissions: **Contents: Read and write**, nothing else. Paste the key into the dashboard once per device. To hand it over in one message, send the link `…/admin/#key=THE_KEY`; the part after `#` never leaves the browser. Delete the token on GitHub to take access away.
+
+**What it changes.** `tools/content.py` lists every place a value goes. It checks how many places it found, and stops the build if the page no longer has them, so after rewording a price, a trip line or a question by hand, run `python3 tools/build.py` and read the message. Change these values in `data/content.json` (or the dashboard), not in the HTML: the build writes over them.
+
+**Photos.** A new photo replaces a file in `assets/img/` under the same name, cut to the same size (and its `-800.jpg` version), so no markup changes.
+
+**Translations.** Prices and scores change in all 12 languages at once. A new or reworded trip or question shows in English on the ten generated languages until its translation is added to `data/i18n/<code>.json` (the Arabic is typed in the dashboard).
 
 ## Languages
 
@@ -29,7 +44,7 @@ tools/i18n.py              swaps the text in the English page for its translatio
 tools/check_i18n.py        checks every language is complete and no placeholder is broken
 ```
 
-**After changing the English page**, run `python3 tools/build.py` (Python 3, nothing to install). New or changed text shows in English on the other languages, and the build lists how many strings each language is missing. Add them to `data/i18n/<code>.json` and run `python3 tools/check_i18n.py`. The Arabic page is still edited by hand.
+**After changing the English page**, run `python3 tools/build.py` (Python 3.12 or newer, nothing to install). New or changed text shows in English on the other languages, and the build lists how many strings each language is missing. Add them to `data/i18n/<code>.json` and run `python3 tools/check_i18n.py`. The Arabic page is still edited by hand.
 
 Strings hide numbers and HTML behind placeholders, so a translation can't change a price or break a link: `<b>40</b> JD` becomes `<0>{0}</0> JD`. Keep every `{0}`, `<0>…</0>` and `<0/>`.
 
@@ -41,7 +56,7 @@ The translations were machine-made. Ask a native speaker to read through each la
 
 1. Create a new public repository, e.g. `castlestaramman`.
 2. Upload **the contents of this folder** (not the folder itself) to the root of the repo.
-3. In the repo, go to **Settings → Pages**, set **Source: Deploy from a branch**, then choose **Branch: main** and **/ (root)**, and save.
+3. In the repo, go to **Settings → Pages** and set **Source: GitHub Actions**. The Publish workflow deploys on every push to `main`.
 4. After about a minute the site is live at `https://<your-username>.github.io/castlestaramman/`.
 5. To use a domain later: add it under Settings → Pages → Custom domain, then point the domain's DNS at GitHub Pages.
 
@@ -51,11 +66,10 @@ The translations were machine-made. Ask a native speaker to read through each la
 |---|---|
 | Any English text | `index.html`, then run `python3 tools/build.py` and translate the new strings (see **Languages**) |
 | WhatsApp number | `data-wa="962780666888"` on the form in both pages, plus the `wa.me` and `tel:` links in the footers |
-| Prices | the `US$…` values on the room cards, and `data-price` on each `<option>` in the booking form (both pages) |
+| Room prices, trips, questions, review scores | the dashboard at `/admin/`, or `data/content.json` |
 | Check-in / check-out times | House rules list (both pages) and `checkinTime` / `checkoutTime` in the JSON-LD in `index.html` |
 | Colours | `:root` at the top of `assets/css/style.css` |
-| Photos | replace the files in `assets/img/` and keep the same names (each large photo also has a smaller `-800.jpg` version for phones) |
-| Day trips & transfers | the `#trips` section in both pages (prices in JD, per car) |
+| Photos | the dashboard, or replace the files in `assets/img/` and keep the same names (each large photo also has a smaller `-800.jpg` version for phones) |
 
 ## How booking works
 

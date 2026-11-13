@@ -1,0 +1,202 @@
+{
+ "scores": {
+  "overall": "8.9",
+  "reviews": 806,
+  "location": "9.5",
+  "staff": "9.5",
+  "value": "9.3",
+  "comfort": "8.9",
+  "hostelworld": "10"
+ },
+ "rooms": [
+  {
+   "name": "Double Room",
+   "usd": 47
+  },
+  {
+   "name": "Twin Room",
+   "usd": 38
+  },
+  {
+   "name": "Comfort Triple Room",
+   "usd": 49
+  },
+  {
+   "name": "Bed in 6-Bed Female Dorm",
+   "usd": 16
+  },
+  {
+   "name": "Bed in 8-Bed Mixed Dorm",
+   "usd": 16
+  }
+ ],
+ "trips": {
+  "day": [
+   {
+    "en": "Jerash, Ajloun & Umm Qais",
+    "ar": "جرش وعجلون وأم قيس",
+    "jd": 80
+   },
+   {
+    "en": "Jerash & Ajloun",
+    "ar": "جرش وعجلون",
+    "jd": 65
+   },
+   {
+    "en": "Jerash",
+    "ar": "جرش",
+    "jd": 40
+   },
+   {
+    "en": "Madaba, Mount Nebo & the Dead Sea",
+    "ar": "مادبا وجبل نيبو والبحر الميت",
+    "jd": 65
+   },
+   {
+    "en": "Dead Sea & the Baptism Site",
+    "ar": "البحر الميت والمغطس",
+    "jd": 60
+   },
+   {
+    "en": "Dead Sea (3-hour wait)",
+    "ar": "البحر الميت (انتظار 3 ساعات)",
+    "jd": 50
+   },
+   {
+    "en": "Madaba, Mount Nebo & the Dead Sea, with a stop in Petra",
+    "ar": "مادبا وجبل نيبو والبحر الميت مع توقف في البتراء",
+    "jd": 100
+   },
+   {
+    "en": "Wadi Rum & Petra in one day (from Amman and back)",
+    "ar": "وادي رم والبتراء في يوم واحد (ذهابًا وإيابًا من عمّان)",
+    "jd": 150
+   }
+  ],
+  "transfers": [
+   {
+    "id": "airport-pickup",
+    "en": "Queen Alia Airport → hostel (private car)",
+    "ar": "مطار الملكة علياء ← النُزل (سيارة خاصة)",
+    "jd": 25
+   },
+   {
+    "en": "Amman → Queen Alia Airport",
+    "ar": "عمّان ← مطار الملكة علياء",
+    "jd": 20
+   },
+   {
+    "en": "Amman → King Hussein Bridge",
+    "ar": "عمّان ← جسر الملك حسين",
+    "jd": 25
+   },
+   {
+    "en": "Amman → Sheikh Hussein Bridge",
+    "ar": "عمّان ← جسر الشيخ حسين",
+    "jd": 50
+   },
+   {
+    "en": "Amman → Dead Sea",
+    "ar": "عمّان ← البحر الميت",
+    "jd": 35
+   },
+   {
+    "en": "Dead Sea → Queen Alia Airport",
+    "ar": "البحر الميت ← مطار الملكة علياء",
+    "jd": 35
+   },
+   {
+    "en": "Amman → Dana Reserve",
+    "ar": "عمّان ← محمية ضانا",
+    "jd": 75
+   },
+   {
+    "en": "Amman → Petra",
+    "ar": "عمّان ← البتراء",
+    "jd": 80
+   },
+   {
+    "en": "Amman → Wadi Rum",
+    "ar": "عمّان ← وادي رم",
+    "jd": 100
+   },
+   {
+    "en": "Amman → Aqaba",
+    "ar": "عمّان ← العقبة",
+    "jd": 100
+   }
+  ]
+ },
+ "faq": [
+  {
+   "q": {
+    "en": "How do I get here from the airport?",
+    "ar": "كيف أصل من المطار؟"
+   },
+   "a": {
+    "en": "We can arrange a private car from Queen Alia International Airport for 25 JD. Going back, a car to the airport is 20 JD. Just add it to your WhatsApp message. On a budget? Take the Sariyah Express bus to Tabarbour station, then a short taxi to us.",
+    "ar": "نرتّب لك سيارة خاصة من مطار الملكة علياء الدولي بـ25 دينارًا. وعند المغادرة، السيارة إلى المطار بـ20 دينارًا. أضِفها إلى رسالتك على واتساب. ميزانيتك محدودة؟ استقل حافلة السرية إكسبرس إلى مجمع طبربور، ثم تاكسي قصير إلينا."
+   }
+  },
+  {
+   "q": {
+    "en": "Can I pay by card?",
+    "ar": "هل يمكنني الدفع بالبطاقة؟"
+   },
+   "a": {
+    "en": "Payment is in cash at the property. There are ATMs and money changers a few minutes' walk away in Downtown, and the desk can help with currency exchange.",
+    "ar": "الدفع نقدًا في الفندق. توجد أجهزة صراف آلي ومحلات صرافة على بُعد دقائق مشيًا في وسط البلد، ويمكن للاستقبال المساعدة في صرف العملات."
+   }
+  },
+  {
+   "q": {
+    "en": "Is there a women-only dorm?",
+    "ar": "هل توجد غرفة مشتركة للنساء فقط؟"
+   },
+   "a": {
+    "en": "Yes. The 6-bed female dorm has privacy curtains and personal lockers for every bed.",
+    "ar": "نعم. غرفة النساء فيها 6 أسرّة، مع ستارة خصوصية وخزانة شخصية لكل سرير."
+   }
+  },
+  {
+   "q": {
+    "en": "Do you serve breakfast?",
+    "ar": "هل تقدمون الإفطار؟"
+   },
+   "a": {
+    "en": "Yes, for a small extra charge: local favourites with vegetarian and halal options, plus juice, pancakes, cheese and fruit. You're also welcome to cook in the shared kitchen.",
+    "ar": "نعم، برسوم إضافية بسيطة: أطباق محلية مع خيارات نباتية وحلال، إضافة إلى العصير والبان كيك والجبنة والفواكه. ويمكنك أيضًا الطبخ في المطبخ المشترك."
+   }
+  },
+  {
+   "q": {
+    "en": "Can you help with tours?",
+    "ar": "هل تساعدون في ترتيب الجولات؟"
+   },
+   "a": {
+    "en": "Yes. We arrange day trips by private car, from Jerash (40 JD) to Wadi Rum and Petra in one day (150 JD). Prices are for the whole car, so you can share with other guests. [See all trips and prices](#trips).",
+    "ar": "نعم. نرتّب رحلات يومية بسيارة خاصة، من جرش (40 دينارًا) إلى وادي رم والبتراء في يوم واحد (150 دينارًا). الأسعار للسيارة كاملة، فيمكنك مشاركتها مع نزلاء آخرين. [اطّلع على كل الرحلات والأسعار](#trips)."
+   }
+  },
+  {
+   "q": {
+    "en": "I'm arriving late. Is that OK?",
+    "ar": "سأصل متأخرًا، هل هذا ممكن؟"
+   },
+   "a": {
+    "en": "The front desk is open 24 hours. Check-in runs until midnight, so let us know your arrival time if you'll be later.",
+    "ar": "الاستقبال مفتوح على مدار 24 ساعة. تسجيل الوصول حتى منتصف الليل، فأخبرنا بموعد وصولك إن كنت ستتأخر أكثر."
+   }
+  },
+  {
+   "q": {
+    "en": "Is there parking?",
+    "ar": "هل يوجد موقف سيارات؟"
+   },
+   "a": {
+    "en": "Yes, free parking is available for guests.",
+    "ar": "نعم، يتوفر موقف مجاني للنزلاء."
+   }
+  }
+ ]
+}
